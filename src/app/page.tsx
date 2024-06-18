@@ -1,7 +1,9 @@
 import Image from "next/image";
 import profilePic from "../../public/profile-pic.png";
 import { OnlineTag } from "@/components/onlineTag";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import TechStack from "@/components/Techstack";
 
 export default function Home() {
   return (
@@ -23,33 +25,56 @@ export default function Home() {
               <strong>Hey, 👋🏻</strong>
               <br /> I am <strong className="text-[#f0ed78]">kraken</strong>
             </div>
-            <div className="m-0 text-lg">
+            <div className="m-0 text-lg z-10 text-gray-400">
               Full Stack Developer crafting sleek and modern web applications.
+            </div>
+            <div className="z-10 flex gap-5">
+              <Link href={"https://github.com/krakenftw"}>
+                <p className="underline z-10">Github</p>
+              </Link>
+
+              <Link href={"https://linkedin.com/in/gaurav0wasd"}>
+                <p className="underline z-10">Linkedin</p>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-1/2  md:w-full z-10 h-screen flex flex-col gap-8 items-center justify-center">
-        <div className="w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-3 rounded-lg">
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <ArrowRightIcon className="font-bold" color="#f0ed78" /> Freelance
-            Experience
-          </h1>
-          <p>
-            I have freelanced as a Node.js developer (discord.js) on Fiverr,
-            earning over 100 five-star reviews for delivering high-quality,
-            reliable, and innovative solutions.
-          </p>
+      <div className="w-1/2 md:w-full z-10 h-screen flex flex-col gap-8 items-center justify-center">
+        <div className="bg-black cursor-pointer w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg">
+          <Link
+            href={"https://www.fiverr.com/gaurav_verma_"}
+            className="relative"
+          >
+            <h1 className="text-2xl font-bold flex items-center gap-2">
+              <ArrowRightIcon className="font-bold" color="#f0ed78" /> Freelance
+              Experience
+            </h1>
+            <p>
+              I have freelanced as a Node.js developer (discord.js) on Fiverr,
+              earning over 100 five-star reviews for delivering high-quality,
+              reliable, and innovative solutions.
+            </p>
+            <ExternalLinkIcon className="absolute top-0 right-0" />
+          </Link>
         </div>
-        <div className="w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-3 rounded-lg">
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <ArrowRightIcon className="font-bold" color="#f0ed78" /> InvougeChat{" "}
-          </h1>
-          <p>
-            Developed a chatbot with AI, implementing RAG Arch. and answering
-            question blazingly fast
-          </p>
+        <div className="bg-black w-2/3 flex cursor-pointer flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg">
+          <Link
+            href={"https://www.github.com/krakenftw/invougeChat"}
+            className="relative"
+          >
+            <h1 className="text-2xl font-bold flex items-center gap-2">
+              <ArrowRightIcon className="font-bold" color="#f0ed78" />{" "}
+              InvougeChat{" "}
+            </h1>
+            <p>
+              Developed a chatbot with AI, implementing RAG Arch. and answering
+              question blazingly fast
+            </p>
+            <ExternalLinkIcon className="absolute top-0 right-0" />
+          </Link>
         </div>
+        <TechStack />
       </div>
     </div>
   );
