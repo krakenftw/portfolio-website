@@ -11,6 +11,12 @@ dependencies:
   '@types/tailwindcss':
     specifier: ^3.1.0
     version: 3.1.0
+  flattenColorPalette:
+    specifier: link:@tailwindcss/lib/util/flattenColorPalette
+    version: link:@tailwindcss/lib/util/flattenColorPalette
+  flattenColorPallete:
+    specifier: link:tailwind/lib/util/flattenColorPallete
+    version: link:tailwind/lib/util/flattenColorPallete
   mini-svg-data-uri:
     specifier: ^1.4.4
     version: 1.4.4
