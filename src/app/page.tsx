@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-1/2 md:w-full z-10 h-screen flex flex-col gap-8 items-center justify-center">
-        <div className="bg-black cursor-pointer w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg">
+        <div className="bg-black cursor-pointer w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg top-0  relative hover:top-[-5px] shadow-none hover:shadow-gray-600 hover:shadow-md transition-all">
           <Link
             href={"https://www.fiverr.com/gaurav_verma_"}
             className="relative"
@@ -58,7 +58,7 @@ export default function Home() {
             <ExternalLinkIcon className="absolute top-0 right-0" />
           </Link>
         </div>
-        <div className="bg-black w-2/3 flex cursor-pointer flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg">
+        <div className="bg-black w-2/3 flex cursor-pointer flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg top-0  relative hover:top-[-5px] shadow-none hover:shadow-gray-600 hover:shadow-md transition-all">
           <Link
             href={"https://www.github.com/krakenftw/invougeChat"}
             className="relative"
