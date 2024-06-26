@@ -7,6 +7,7 @@ import {
   cibNextJs,
   cibNodeJs,
   cibReact,
+  cibSvelte,
   cibTypescript,
 } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
@@ -27,8 +28,8 @@ export default function TechStack() {
       <div className="flex flex-col gap-2">
         <p className="font-semibold text-lg">Currently Learning</p>
         <div className="[&>*]:w-10 fill-white flex gap-3">
+          <CIcon icon={cibSvelte} />
           <CIcon icon={cibKubernetes} />
-          <CIcon icon={cibAngular} />
         </div>
       </div>
     </div>
