@@ -1,43 +1,77 @@
-import { ArrowRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import TechStack from "./Techstack";
+"use client";
+import EachTool from "./EachTool";
+import Github from "./Github";
+import Website from "./Website";
+import { motion } from "framer-motion";
 
 export default function Project() {
   return (
-    <div className="w-full z-10 h-full md:h-screen py-10 flex flex-col gap-8 items-center justify-center">
-      <div className="bg-black cursor-pointer w-3/4 md:w-2/3 flex flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg top-0  relative hover:top-[-5px] shadow-none hover:shadow-gray-600 hover:shadow-md transition-all">
-        <Link
-          href={"https://www.fiverr.com/gaurav_verma_"}
-          className="relative"
-        >
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <ArrowRightIcon className="font-bold" color="#f0ed78" /> Freelance
-            Experience
-          </h1>
-          <p>
-            I have freelanced as a Node.js developer (discord.js) on Fiverr,
-            earning over 100 five-star reviews for delivering high-quality,
-            reliable, and innovative solutions.
-          </p>
-          <ExternalLinkIcon className="absolute top-0 right-0" />
-        </Link>
+    <div className="w-full flex flex-col gap-8">
+      <div className="flex gap-2 flex-col">
+        <h1 className="text-4xl font-semibold">projects</h1>
+        <span className="text-slate-500">i like building stuff</span>
       </div>
-      <div className="bg-black w-3/4 md:w-2/3 flex cursor-pointer flex-col gap-4 border-[1px] border-gray-500 p-4 rounded-lg top-0  relative hover:top-[-5px] shadow-none hover:shadow-gray-600 hover:shadow-md transition-all">
-        <Link
-          href={"https://www.github.com/krakenftw/invougeChat"}
-          className="relative"
-        >
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <ArrowRightIcon className="font-bold" color="#f0ed78" /> InvougeChat{" "}
-          </h1>
-          <p>
-            Developed a chatbot with AI, implementing RAG Arch. and answering
-            question blazingly fast
-          </p>
-          <ExternalLinkIcon className="absolute top-0 right-0" />
-        </Link>
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-4">
+            <span className="relative text-xl font-semibold">imglyx</span>
+            <div className="flex gap-2">
+              <Website url="https://imglyx.krak.codes" />
+              <Github url="https://www.github.com/krakenftw" />
+            </div>
+          </div>
+          <span className="text-gray-400">
+            text-to-image generation platform with multimodal support, offering
+            users the ability to generate both public and private images. The
+            platform features an explore page where users can view community
+            creations, as well as a coin-based system for managing access to
+            advanced features. With a focus on user experience, imglyx combines
+            a clean, professional UI with powerful image generation
+            capabilities, providing an accessible tool for creative expression.
+          </span>
+          <EachTool
+            names={[
+              "Next.js",
+              "PostgreSQL",
+              "Prisma",
+              "Zustand",
+              "TailwindCSS",
+              "Shadcn UI",
+            ]}
+          />
+        </div>
       </div>
-      <TechStack />{" "}
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-4">
+            <span className="text-xl font-semibold">invouge.ai</span>
+            <div className="flex gap-2">
+              <Github url="https://github.com/krakenftw/invouge-v2" />
+            </div>
+          </div>
+          <span className="text-gray-400">
+            engineered a sophisticated user training solution utilizing
+            retrieval-augmented generation (rag) architecture to deliver precise
+            and effective responses. integrated langchain and vector databases
+            to enable advanced natural language processing capabilities.
+            designed an intuitive and user-centric interface to enhance customer
+            support, and employed docker and github actions to streamline
+            continuous integration and delivery processes.{" "}
+          </span>
+          <EachTool
+            names={[
+              "Next.js",
+              "Langchain",
+              "PGVector",
+              "Drizzle",
+              "TailwindCSS",
+              "Shadcn UI",
+              "Open AI",
+              "Groq",
+            ]}
+          />
+        </div>
+      </div>
     </div>
   );
 }
