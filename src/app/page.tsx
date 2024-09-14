@@ -3,7 +3,7 @@ import Image from "next/image";
 import profilePic from "../../public/profile-pic.png";
 import Project from "@/components/Project";
 import FreelanceProject from "@/components/FreelanceProject";
-import { Dock, DockIcon } from "@/components/dock";
+import { Dock, DockIcon } from "@/components/Dock";
 import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
