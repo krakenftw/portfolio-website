@@ -74,13 +74,19 @@ export default function Home() {
       </div>
       <Dock direction="middle" className="fixed bottom-5">
         <DockIcon>
-          <FaHome className="size-6" />
+          <a href="https://www.krak.codes">
+            <FaHome className="size-6" />
+          </a>
         </DockIcon>
         <DockIcon>
-          <GitHubLogoIcon className="size-6" />
+          <a href="https://www.github.com/krakenftw">
+            <GitHubLogoIcon className="size-6" />
+          </a>
         </DockIcon>
         <DockIcon>
-          <LinkedInLogoIcon className="size-6" />
+          <a href="https://www.linkedin.com/in/gaurav0wasd/">
+            <LinkedInLogoIcon className="size-6" />
+          </a>
         </DockIcon>
         <div className="text-primary">|</div>
         <DockIcon>
