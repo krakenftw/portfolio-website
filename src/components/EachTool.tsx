@@ -4,11 +4,11 @@ import { TbBrandNextjs } from "react-icons/tb";
 
 function Website({ names }: { names: string[] }) {
   return (
-    <div className="flex gap-2 cursor-pointer">
+    <div className="flex gap-2 cursor-pointer max-w-full flex-wrap">
       {names.map((eachName) => {
         return (
           <div
-            className="bg-slate-900  rounded-lg px-2 py-1 text-white/60 text-xs flex items-center gap-2 border-slate-800 border"
+            className="bg-secondary mb-2 break-words rounded-lg px-2 py-1 text-primary/80 text-xs flex items-center gap-2 border-slate-800 border"
             key={eachName}
           >
             {eachName}

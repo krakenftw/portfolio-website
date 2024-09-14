@@ -8,7 +8,7 @@ export default function Project() {
   return (
     <div className="w-full flex flex-col gap-8">
       <div className="flex gap-2 flex-col">
-        <h1 className="text-4xl font-semibold">projects</h1>
+        <h1 className="text-4xl font-semibold">Projects</h1>
         <span className="text-slate-500">i like building stuff</span>
       </div>
       <div className="flex flex-col gap-3">

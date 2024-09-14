@@ -1,38 +1,124 @@
-import {
-  GitHubLogoIcon,
-  HomeIcon,
-  LinkedInLogoIcon,
-  SunIcon,
-} from "@radix-ui/react-icons";
-import React from "react";
+"use client";
 
-function Dock() {
-  return (
-    <div className="fixed flex items-center justify-center gap-4 bottom-5 shadow-xl bg-slate-900 px-4 py-4  rounded-lg border border-slate-600">
-      <a
-        href="https://www.krak.codes"
-        className=" items-center justify-center flex"
-      >
-        <HomeIcon className="size-5" />
-      </a>
-      <a
-        href="https://www.github.com/krakenftw"
-        className="items-center justify-center flex"
-      >
-        <GitHubLogoIcon className="size-5" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/gaurav0wasd/"
-        className="items-center justify-center flex"
-      >
-        <LinkedInLogoIcon className="size-5" />
-      </a>
-      <div className="h-full text-slate-400">|</div>
-      <button className="items-center justify-center flex">
-        <SunIcon className="size-5" />
-      </button>
-    </div>
-  );
+import React, { PropsWithChildren, useRef } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+import { cn } from "@/lib/utils";
+
+export interface DockProps extends VariantProps<typeof dockVariants> {
+  className?: string;
+  magnification?: number;
+  distance?: number;
+  direction?: "top" | "middle" | "bottom";
+  children: React.ReactNode;
 }
 
-export default Dock;
+const DEFAULT_MAGNIFICATION = 60;
+const DEFAULT_DISTANCE = 140;
+
+const dockVariants = cva(
+  "mx-auto w-max mt-8 h-[45px] p-2 flex gap-2 rounded-2xl border supports-backdrop-blur:bg-white/60 supports-backdrop-blur:dark:bg-black/10 bg-secondary shadow-[0_54px_55px_rgba(0,0,0,0.25),0_-12px_30px_rgba(0,0,0,0.12),0_4px_6px_rgba(0,0,0,0.12),0_12px_13px_rgba(0,0,0,0.17),0_-3px_5px_rgba(0,0,0,0.09)]",
+);
+
+const Dock = React.forwardRef<HTMLDivElement, DockProps>(
+  (
+    {
+      className,
+      children,
+      magnification = DEFAULT_MAGNIFICATION,
+      distance = DEFAULT_DISTANCE,
+      direction = "bottom",
+      ...props
+    },
+    ref,
+  ) => {
+    const mouseX = useMotionValue(Infinity);
+
+    const renderChildren = () => {
+      return React.Children.map(children, (child: any) => {
+        return React.cloneElement(child, {
+          mouseX: mouseX,
+          magnification: magnification,
+          distance: distance,
+        });
+      });
+    };
+
+    return (
+      <motion.div
+        ref={ref}
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
+        {...props}
+        className={cn(dockVariants({ className }), {
+          "items-start": direction === "top",
+          "items-center": direction === "middle",
+          "items-end": direction === "bottom",
+        })}
+      >
+        {renderChildren()}
+      </motion.div>
+    );
+  },
+);
+
+Dock.displayName = "Dock";
+
+export interface DockIconProps {
+  size?: number;
+  magnification?: number;
+  distance?: number;
+  mouseX?: any;
+  className?: string;
+  children?: React.ReactNode;
+  props?: PropsWithChildren;
+}
+
+const DockIcon = ({
+  size,
+  magnification = DEFAULT_MAGNIFICATION,
+  distance = DEFAULT_DISTANCE,
+  mouseX,
+  className,
+  children,
+  ...props
+}: DockIconProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const distanceCalc = useTransform(mouseX, (val: number) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+
+    return val - bounds.x - bounds.width / 2;
+  });
+
+  let widthSync = useTransform(
+    distanceCalc,
+    [-distance, 0, distance],
+    [40, magnification, 40],
+  );
+
+  let width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ width }}
+      className={cn(
+        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+DockIcon.displayName = "DockIcon";
+
+export { Dock, DockIcon, dockVariants };

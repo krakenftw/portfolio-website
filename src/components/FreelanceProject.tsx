@@ -6,7 +6,7 @@ function FreelanceProject() {
   return (
     <div className="w-full flex flex-col gap-8">
       <div className="flex gap-2 flex-col">
-        <h1 className="text-4xl font-semibold">freelance project</h1>
+        <h1 className="text-4xl font-semibold">Freelance Projects</h1>
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-2">
