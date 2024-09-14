@@ -26,20 +26,22 @@ export default function Home() {
       <div className="absolute top-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]"></div>
       </div>
-      <div className="w-4/5 md:w-3/5 lg:w-2/5 flex flex-col gap-5 justify-center">
+      <div className="w-4/5 md:w-3/5 lg:w-2/5 flex flex-col  gap-5 justify-center">
         <AnimateOnLoad delay={0.3}>
-          <div className="w-[220px] h-[220px] border-border rounded-full border-2">
-            <Image
-              src={profilePic}
-              alt="Ah, it didnt load :("
-              width={"220"}
-              height={"220"}
-              className="rounded-full border-transparent border-4"
-            ></Image>
+          <div className="w-full flex items-center justify-center my-2 md:justify-start">
+            <div className="w-[220px] h-[220px] border-border rounded-full border-2">
+              <Image
+                src={profilePic}
+                alt="Ah, it didnt load :("
+                width={"220"}
+                height={"220"}
+                className="rounded-full border-transparent border-4"
+              ></Image>
+            </div>
           </div>
           <div className="w-full">
-            <div className=" flex flex-col gap-4">
-              <div className="text-5xl leading-[60px] font-bold z-10">
+            <div className=" flex flex-col items-center md:items-start gap-4">
+              <div className="text-4xl md:text-5xl leading-[60px] font-bold z-10">
                 Hey, I&apos;m gaurav 👋🏻
               </div>
               <div className="m-0 text-md z-10 text-gray-400">
