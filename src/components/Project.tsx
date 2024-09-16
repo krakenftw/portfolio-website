@@ -21,13 +21,13 @@ export default function Project() {
             </div>
           </div>
           <span className="text-gray-400">
-            text-to-image generation platform with multimodal support, offering
-            users the ability to generate both public and private images. The
-            platform features an explore page where users can view community
-            creations, as well as a coin-based system for managing access to
-            advanced features. With a focus on user experience, imglyx combines
-            a clean, professional UI with powerful image generation
-            capabilities, providing an accessible tool for creative expression.
+            Imglyx is a text-to-image generation platform with multimodal
+            support, allowing users to generate both public and private images.
+            The platform features an explore page where users can view community
+            creations and a coin-based system for accessing advanced features.
+            With a focus on user experience, Imglyx combines a clean,
+            professional UI with powerful image generation capabilities,
+            providing an accessible tool for creative expression.{" "}
           </span>
           <EachTool
             names={[
@@ -50,12 +50,12 @@ export default function Project() {
             </div>
           </div>
           <span className="text-gray-400">
-            engineered a sophisticated user training solution utilizing
-            retrieval-augmented generation (rag) architecture to deliver precise
-            and effective responses. integrated langchain and vector databases
+            Engineered a sophisticated user training solution utilizing
+            Retrieval-Augmented Generation (RAG) architecture to deliver precise
+            and effective responses. Integrated Langchain and vector databases
             to enable advanced natural language processing capabilities.
-            designed an intuitive and user-centric interface to enhance customer
-            support, and employed docker and github actions to streamline
+            Designed an intuitive, user-centric interface to enhance customer
+            support and employed Docker and GitHub Actions to streamline
             continuous integration and delivery processes.{" "}
           </span>
           <EachTool

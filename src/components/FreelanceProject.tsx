@@ -17,14 +17,14 @@ function FreelanceProject() {
             </div>
           </div>
           <span className="text-gray-400">
-            as a solo developer, i crafted goblino bot: a revolutionary
-            discord-based platform for online currency trading. my creation
+            As a solo developer, I crafted Goblino Bot, a revolutionary
+            Discord-based platform for online currency trading. My creation
             seamlessly integrates a custom website and bot, offering users a
-            secure and efficient experience. leveraging cutting-edge tech, i
-            built a scalable solution with stripe for payments and github
-            actions for smooth deployment. this project showcases my ability to
+            secure and efficient experience. Leveraging cutting-edge technology,
+            I built a scalable solution using Stripe for payments and GitHub
+            Actions for smooth deployment. This project showcases my ability to
             develop complex, user-friendly systems that bridge social platforms
-            and digital finance.
+            and digital finance.{" "}
           </span>
           <EachTool
             names={[
